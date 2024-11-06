@@ -17,6 +17,18 @@ This is a roadmap for my game, I will add different goals here, and also write h
 | Tag Time            | Work has not started                         | 0%               |
 | Ingame shop         | Work has not started                         | 0%               |
 
+## separate code in files
+
+snake_game/ # game directory
+constants.py
+game.py
+menu.py
+snake.py
+save_score.py
+utils.py
+saves/ # directory for saved scores
+score.json
+
 ## In the further future:
 
 | Target       | Progress             | Percent progress |
@@ -28,6 +40,6 @@ This is a roadmap for my game, I will add different goals here, and also write h
 
 ## Maybe
 
-| Target              | Progress                                     | Percent progress |
-| ------------------- | -------------------------------------------- | ---------------- |
-| Bug fix             | Idk                                          | 0%               |
+| Target  | Progress | Percent progress |
+| ------- | -------- | ---------------- |
+| Bug fix | Idk      | 0%               |

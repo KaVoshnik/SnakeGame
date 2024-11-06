@@ -114,7 +114,6 @@ def difficulty_menu():
                 elif screen_width / 2 - hard_text.get_width() / 2 < event.pos[0] < screen_width / 2 + hard_text.get_width() / 2 and 300 < event.pos[1] < 320:
                     return "hard"
 
-
 def save_score(score, difficulty):
     saves_folder = "saves"
     if not os.path.exists(saves_folder):
@@ -140,7 +139,6 @@ def save_score(score, difficulty):
 
     with open(save_file, "w") as f:
         json.dump(data, f)
-
 
 def main():
     cell_size = 20
