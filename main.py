@@ -1,6 +1,7 @@
 import pygame
 import random
 import sys
+import math
 
 pygame.init()
 screen_width = 600
@@ -70,6 +71,39 @@ def game_over_screen(score):
                 elif screen_width / 2 - menu_text.get_width() / 2 < event.pos[0] < screen_width / 2 + menu_text.get_width() / 2 and 250 < event.pos[1] < 270:
                     return "menu"
 
+def difficulty_menu():
+    screen.fill((0, 0, 0))
+    font = pygame.font.SysFont("jetbrains mono", 40)
+    title_text = font.render("Choose Difficulty", True, (255, 255, 255))
+    screen.blit(title_text, (screen_width / 2 - title_text.get_width() / 2, 100))
+
+    font = pygame.font.SysFont("jetbrains mono", 20)
+    easy_text = font.render("Easy", True, (255, 255, 255))
+    screen.blit(easy_text, (screen_width / 2 - easy_text.get_width() / 2, 200))
+
+    medium_text = font.render("Medium", True, (255, 255, 255))
+    screen.blit(medium_text, (screen_width / 2 - medium_text.get_width() / 2, 250))
+
+    hard_text = font.render("Hard", True, (255, 255, 255))
+    screen.blit(hard_text, (screen_width / 2 - hard_text.get_width() / 2, 300))
+
+    pygame.display.update()
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if screen_width / 2 - easy_text.get_width() / 2 < event.pos[0] < screen_width / 2 + easy_text.get_width() / 2 and 200 < event.pos[1] < 220:
+                    return "easy"
+                elif screen_width / 2 - medium_text.get_width() / 2 < event.pos[0] < screen_width / 2 + medium_text.get_width() / 2 and 250 < event.pos[1] < 270:
+                    return "medium"
+                elif screen_width / 2 - hard_text.get_width() / 2 < event.pos[0] < screen_width / 2 + hard_text.get_width() / 2 and 300 < event.pos[1] < 320:
+                    return "hard"
+
+
+
 def main():
     cell_size = 20
     snake_speed = 10
@@ -80,7 +114,16 @@ def main():
 
     while True:
         main_menu()
+        difficulty = difficulty_menu()
         game_over = False
+
+        if difficulty == "easy":
+            snake_speed = 10
+        elif difficulty == "medium":
+            snake_speed = 15
+        elif difficulty == "hard":
+            snake_speed = 20
+
 
         snake_body = []
         for i in range(snake_length):
@@ -144,6 +187,14 @@ def main():
 
             if game_over:
                 score = snake_length - 3
+                if difficulty == "easy":
+                    score *= 0.5
+                    score = math.floor(score)
+                if difficulty == "medium":
+                    score *= 1
+                elif difficulty == "hard":
+                    score *= 1.5
+                    score = math.floor(score)
                 result = game_over_screen(score)
                 if result == "restart":
                     game_over = False
