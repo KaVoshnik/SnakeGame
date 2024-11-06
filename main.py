@@ -133,27 +133,33 @@ def main():
 
         while not game_over:
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    game_over = True
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_UP and snake_direction != "down":
-                        new_direction = "up"
-                    elif event.key == pygame.K_DOWN and snake_direction != "up":
-                        new_direction = "down"
-                    elif event.key == pygame.K_LEFT and snake_direction != "right":
-                        new_direction = "left"
-                    elif event.key == pygame.K_RIGHT and snake_direction != "left":
-                        new_direction = "right"
+                match event.type:
+                    case pygame.QUIT:
+                        game_over = True
+                    case pygame.KEYDOWN:
+                        match event.key:
+                            case pygame.K_UP:
+                                if snake_direction != "down":
+                                    snake_direction = "up"
+                            case pygame.K_DOWN:
+                                if snake_direction != "up":
+                                    snake_direction = "down"
+                            case pygame.K_LEFT:
+                                if snake_direction != "right":
+                                    snake_direction = "left"
+                            case pygame.K_RIGHT:
+                                if snake_direction != "left":
+                                    snake_direction = "right"
 
-            snake_direction = new_direction
-            if snake_direction == "up":
-                snake_body.insert(0, pygame.Rect(snake_body[0].left, snake_body[0].top - cell_size, cell_size, cell_size))
-            elif snake_direction == "down":
-                snake_body.insert(0, pygame.Rect(snake_body[0].left, snake_body[0].top + cell_size, cell_size, cell_size))
-            elif snake_direction == "left":
-                snake_body.insert(0, pygame.Rect(snake_body[0].left - cell_size, snake_body[0].top, cell_size, cell_size))
-            elif snake_direction == "right":
-                snake_body.insert(0, pygame.Rect(snake_body[0].left + cell_size, snake_body[0].top, cell_size, cell_size))
+            match snake_direction:
+                case "up":
+                    snake_body.insert(0, pygame.Rect(snake_body[0].left, snake_body[0].top - cell_size, cell_size, cell_size))
+                case "down":
+                    snake_body.insert(0, pygame.Rect(snake_body[0].left, snake_body[0].top + cell_size, cell_size, cell_size))
+                case "left":
+                    snake_body.insert(0, pygame.Rect(snake_body[0].left - cell_size, snake_body[0].top, cell_size, cell_size))
+                case "right":
+                    snake_body.insert(0, pygame.Rect(snake_body[0].left + cell_size, snake_body[0].top, cell_size, cell_size))
 
             if snake_body[0].colliderect(apple_position):
                 apple_position = pygame.Rect(random.randint(0, screen_width - cell_size), random.randint(0, screen_height-cell_size), cell_size, cell_size)
