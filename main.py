@@ -25,10 +25,12 @@ def main_menu():
 
     font = pygame.font.SysFont("jetbrains mono", 20)
     play_text = font.render("Play", True, (255, 255, 255))
-    screen.blit(play_text, (screen_width / 2 - play_text.get_width() / 2, 200))
+    play_rect = play_text.get_rect(center=(screen_width / 2, 200))
+    screen.blit(play_text, play_rect)
 
     quit_text = font.render("Quit", True, (255, 255, 255))
-    screen.blit(quit_text, (screen_width / 2 - quit_text.get_width() / 2, 250))
+    quit_rect = quit_text.get_rect(center=(screen_width / 2, 250))
+    screen.blit(quit_text, quit_rect)
 
     pygame.display.update()
 
@@ -50,21 +52,23 @@ def game_over_screen(score, records_text=None):
     if records_text:
         font = pygame.font.SysFont("jetbrains mono", 20)
         text = font.render(f"Record: {records_text}", True, (255, 255, 255))
-        screen.blit(text, (screen_width / 2 - text.get_width() / 2, 180))
+        screen.blit(text, (screen_width / 2 - text.get_width() / 2, 130))
 
     font = pygame.font.SysFont("jetbrains mono", 40)
     game_over_text = font.render("Game Over", True, (255, 255, 255))
-    screen.blit(game_over_text, (screen_width / 2 - game_over_text.get_width() / 2, 100))
+    screen.blit(game_over_text, (screen_width / 2 - game_over_text.get_width() / 2, 50))
 
     font = pygame.font.SysFont("jetbrains mono", 20)
     score_text = font.render(f"Your Score: {score}", True, (255, 255, 255))
-    screen.blit(score_text, (screen_width / 2 - score_text.get_width() / 2, 150))
+    screen.blit(score_text, (screen_width / 2 - score_text.get_width() / 2, 100))
 
     restart_text = font.render("Restart", True, (255, 255, 255))
-    screen.blit(restart_text, (screen_width / 2 - restart_text.get_width() / 2, 200))
+    restart_rect = restart_text.get_rect(center=(screen_width / 2, 200))
+    screen.blit(restart_text, restart_rect)
 
     menu_text = font.render("Menu", True, (255, 255, 255))
-    screen.blit(menu_text, (screen_width / 2 - menu_text.get_width() / 2, 250))
+    menu_rect = menu_text.get_rect(center=(screen_width / 2, 250))
+    screen.blit(menu_text, menu_rect)
 
     pygame.display.update()
 
