@@ -11,7 +11,7 @@ This is a roadmap for my game, I will add different goals here, and also write h
 | Base game           | Finished                                     | 100%             |
 | Main menu           | There are buttons to start the game and exit | +- 50%           |
 | Difficulties        | Finished                                     | 100%             |
-| Saving local scores | Work has started                             | +- 70%           |
+| Saving local scores | Work has started                             | +- 60%           |
 | Leaderboard         | Work has not started                         | 0%               |
 | Bonuses             | Work has not started                         | 0%               |
 | Tag Time            | Work has not started                         | 0%               |

@@ -44,8 +44,14 @@ def main_menu():
                     pygame.quit()
                     sys.exit()
 
-def game_over_screen(score):
+def game_over_screen(score, records_text=None):
     screen.fill((0, 0, 0))
+
+    if records_text:
+        font = pygame.font.SysFont("jetbrains mono", 20)
+        text = font.render(f"Record: {records_text}", True, (255, 255, 255))
+        screen.blit(text, (screen_width / 2 - text.get_width() / 2, 180))
+
     font = pygame.font.SysFont("jetbrains mono", 40)
     game_over_text = font.render("Game Over", True, (255, 255, 255))
     screen.blit(game_over_text, (screen_width / 2 - game_over_text.get_width() / 2, 100))
@@ -232,7 +238,17 @@ def main():
                     score *= 1.5
                     score = math.floor(score)
                     save_score(score, difficulty)
-                result = game_over_screen(score)
+
+                saves_folder = "saves"
+                save_file = os.path.join(saves_folder, "score.json")
+                with open(save_file, "r") as f:
+                    data = json.load(f)
+
+                records_text = ""
+                records_text = data["records"].get(difficulty, 0)
+                #records_text += f"{difficulty.capitalize()}: {record}\n"
+                    
+                result = game_over_screen(score, records_text)
                 if result == "restart":
                     game_over = False
                     snake_body = []
