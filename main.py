@@ -2,6 +2,8 @@ import pygame
 import random
 import sys
 import math
+import json
+import os
 
 pygame.init()
 screen_width = 600
@@ -103,6 +105,32 @@ def difficulty_menu():
                     return "hard"
 
 
+def save_score(score, difficulty):
+    saves_folder = "saves"
+    if not os.path.exists(saves_folder):
+        os.makedirs(saves_folder)
+    save_file = os.path.join(saves_folder, "score.json")
+    data = {}
+    try:
+        with open(save_file, "r") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        pass
+
+    if "total_score" not in data:
+        data["total_score"] = 0
+    data["total_score"] += score
+
+    if "records" not in data:
+        data["records"] = {}
+    if difficulty not in data["records"] or score > data["records"][difficulty]:
+        data["records"][difficulty] = score
+
+    data["last_score"] = score
+
+    with open(save_file, "w") as f:
+        json.dump(data, f)
+
 
 def main():
     cell_size = 20
@@ -196,11 +224,14 @@ def main():
                 if difficulty == "easy":
                     score *= 0.5
                     score = math.floor(score)
+                    save_score(score, difficulty)
                 if difficulty == "medium":
                     score *= 1
+                    save_score(score, difficulty)
                 elif difficulty == "hard":
                     score *= 1.5
                     score = math.floor(score)
+                    save_score(score, difficulty)
                 result = game_over_screen(score)
                 if result == "restart":
                     game_over = False
@@ -215,6 +246,7 @@ def main():
                     snake_body = []
                     snake_length = 3
                     break
+
 
 if __name__ == "__main__":
     main()
