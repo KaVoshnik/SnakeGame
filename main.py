@@ -147,8 +147,19 @@ def main():
     snake_speed = 10
     snake_length = 3
     snake_body = []
-    apple_position = pygame.Rect(random.randint(0, screen_width - cell_size), random.randint(0, screen_height - cell_size), cell_size, cell_size)
+    apple_position = pygame.Rect(
+    random.randint(0, screen_width // cell_size - 1) * cell_size,
+    random.randint(0, screen_height // cell_size - 1) * cell_size,
+    cell_size,
+    cell_size)
 
+    while apple_position.collidelist(snake_body) != -1:
+        apple_position = pygame.Rect(
+            random.randint(0, screen_width // cell_size - 1) * cell_size,
+            random.randint(0, screen_height // cell_size - 1) * cell_size,
+            cell_size,
+            cell_size
+        )
 
     while True:
         main_menu()

@@ -25,3 +25,9 @@ This is a roadmap for my game, I will add different goals here, and also write h
 | Boss fights  | Work has not started | 0%               |
 | Multiplayer  | Work has not started | 0%               |
 | World Gen    | Work has not started | 0%               |
+
+## Maybe
+
+| Target              | Progress                                     | Percent progress |
+| ------------------- | -------------------------------------------- | ---------------- |
+| Bug fix             | Idk                                          | 0%               |
