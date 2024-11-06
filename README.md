@@ -19,15 +19,9 @@ This is a roadmap for my game, I will add different goals here, and also write h
 
 ## separate code in files
 
-snake_game/ # game directory
-constants.py
-game.py
-menu.py
-snake.py
-save_score.py
-utils.py
-saves/ # directory for saved scores
-score.json
+> **Snake_game:** Folder with code for game.
+
+> **Data:** Folder for save scores, liaderboard and other data
 
 ## In the further future:
 
