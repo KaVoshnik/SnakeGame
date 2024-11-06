@@ -21,7 +21,7 @@ This is a roadmap for my game, I will add different goals here, and also write h
 
 > **Snake_game:** Folder with code for game.
 
-> **Data:** Folder for save scores, liaderboard and other data
+> **Data:** Folder for save scores, leaderboard and other data
 
 ## In the further future:
 
