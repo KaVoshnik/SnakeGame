@@ -115,7 +115,7 @@ def difficulty_menu():
                     return "hard"
 
 def save_score(score, difficulty):
-    saves_folder = "saves"
+    saves_folder = "Data"
     if not os.path.exists(saves_folder):
         os.makedirs(saves_folder)
     save_file = os.path.join(saves_folder, "score.json")
@@ -252,7 +252,7 @@ def main():
                     score = math.floor(score)
                     save_score(score, difficulty)
 
-                saves_folder = "saves"
+                saves_folder = "Data"
                 save_file = os.path.join(saves_folder, "score.json")
                 with open(save_file, "r") as f:
                     data = json.load(f)
