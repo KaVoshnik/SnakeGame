@@ -13,6 +13,7 @@ def main_menu():
     play_rect = play_text.get_rect(center=(screen_width / 2, 200))
     screen.blit(play_text, play_rect)
 
+    font = pygame.font.SysFont("jetbrains mono", 20)
     quit_text = font.render("Quit", True, (255, 255, 255))
     quit_rect = quit_text.get_rect(center=(screen_width / 2, 250))
     screen.blit(quit_text, quit_rect)
