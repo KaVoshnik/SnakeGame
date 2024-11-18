@@ -2,7 +2,7 @@
 
 Hi! This is my first project on **Pygame**.
 
-## Roadmap
+## Shortlist
 
 This is a roadmap for my game, I will add different goals here, and also write how ready they are at the moment.
 
