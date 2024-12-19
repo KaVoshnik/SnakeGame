@@ -9,13 +9,14 @@ This is a roadmap for my game, I will add different goals here, and also write h
 | Target              | Progress                                     | Percent progress |
 | ------------------- | -------------------------------------------- | ---------------- |
 | Base game           | Finished                                     | 100%             |
-| Main menu           | There are buttons to start the game and exit | +- 50%           |
+| Main menu           | There are buttons to start the game and exit | +- 75%           |
 | Difficulties        | Finished                                     | 100%             |
 | Saving local scores | Finished                                     | 100%             |
 | Leaderboard         | Work has not started                         | 0%               |
 | Bonuses             | Work has not started                         | 0%               |
 | Tag Time            | Work has not started                         | 0%               |
 | Ingame shop         | Work has not started                         | 0%               |
+| New graphics        | Work has not started                         | 0%               |
 
 ## separate code in files
 

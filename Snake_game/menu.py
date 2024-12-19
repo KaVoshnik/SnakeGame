@@ -1,5 +1,6 @@
 import pygame
 import sys
+from leaderboard import leaderboard
 from constants import screen, SCREEN_WIDTH as screen_width
 
 def main_menu():
@@ -14,11 +15,11 @@ def main_menu():
     screen.blit(play_text, play_rect)
 
     leaderboard_text = font.render("Leaderboard", True, (255, 255, 255))
-    leaderboard_rect = leaderboard_text.get_rect(center=(screen_width / 2, 250))  # Increased y-coordinate to add space
+    leaderboard_rect = leaderboard_text.get_rect(center=(screen_width / 2, 250))
     screen.blit(leaderboard_text, leaderboard_rect)
 
     quit_text = font.render("Quit", True, (255, 255, 255))
-    quit_rect = quit_text.get_rect(center=(screen_width / 2, 300))  # Increased y-coordinate to add space
+    quit_rect = quit_text.get_rect(center=(screen_width / 2, 300))
     screen.blit(quit_text, quit_rect)
 
     pygame.display.update()
@@ -32,8 +33,7 @@ def main_menu():
                 if screen_width / 2 - play_text.get_width() / 2 < event.pos[0] < screen_width / 2 + play_text.get_width() / 2 and 200 < event.pos[1] < 220:
                     return
                 elif screen_width / 2 - leaderboard_text.get_width() / 2 < event.pos[0] < screen_width / 2 + leaderboard_text.get_width() / 2 and 250 < event.pos[1] < 270:
-                    # Add leaderboard functionality here
-                    pass
+                    leaderboard()
                 elif screen_width / 2 - quit_text.get_width() / 2 < event.pos[0] < screen_width / 2 + quit_text.get_width() / 2 and 300 < event.pos[1] < 320:
                     pygame.quit()
                     sys.exit()
