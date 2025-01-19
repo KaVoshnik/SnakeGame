@@ -1,7 +1,5 @@
 import pygame
-import random
 import sys
-import math
 import json
 import os
 from constants import screen, SCREEN_WIDTH as screen_width, SCREEN_HEIGHT as screen_height
